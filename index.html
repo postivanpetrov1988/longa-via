@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Сайт медтуризма Longa Via</title>
+<meta name="description" content="Восемь программ обследования, восстановления и долголетия в лучших клиниках девяти стран. Методики с оценкой доказательности, расписание по дням и сопровождение от визы до разбора результатов.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Display:ital,wght@0,300;0,400;0,500;1,300&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Layout: editorial split, headings left and content right; a deep glacial hero and closing band frame a light, quiet body */
+  --ink:#0E2A2F;
+  --lake:#17434B;
+  --porcelain:#F2F4F1;
+  --mist:#DFE7E4;
+  --lichen:#D2DC9E;
+  --stone:#55686A;
+  --white:#FFFFFF;
+  --error:#9E2F24;
+  --line:rgba(14,42,47,.14);
+  --line-dark:rgba(242,244,241,.16);
+  --display:"Noto Serif Display","Iowan Old Style",Georgia,"Times New Roman",serif;
+  --body:"Onest","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;
+  --t-xs:13px;
+  --t-s:15px;
+  --t-m:17px;
+  --t-l:20px;
+  --t-xl:clamp(24px,2.4vw,30px);
+  --t-2xl:clamp(34px,4.2vw,52px);
+  --t-3xl:clamp(42px,6.4vw,84px);
+  --wrap:1280px;
+  --gutter:clamp(20px,4vw,56px);
+  --section:clamp(80px,10vw,144px);
+  color-scheme:light;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--porcelain);color:var(--ink);font-family:var(--body);font-size:var(--t-m);line-height:1.6;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img,canvas{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:var(--display);font-weight:300;margin:0;text-wrap:balance;letter-spacing:-.005em;overflow-wrap:break-word;-webkit-hyphens:auto;hyphens:auto}
+p{margin:0}
+button{font:inherit;color:inherit}
+:focus-visible{outline:2px solid currentColor;outline-offset:3px;border-radius:4px}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.wrap{width:100%;max-width:var(--wrap);margin:0 auto;padding-left:var(--gutter);padding-right:var(--gutter)}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:0 28px;border-radius:999px;border:1px solid transparent;font-size:var(--t-s);font-weight:500;letter-spacing:.01em;text-decoration:none;cursor:pointer;transition:background-color .25s ease,color .25s ease,border-color .25s ease}
+.btn-light{background:var(--lichen);color:var(--ink)}
+.btn-light:hover{background:var(--porcelain)}
+.btn-dark{background:var(--ink);color:var(--porcelain)}
+.btn-dark:hover{background:var(--lake)}
+.btn-ghost{background:transparent;border-color:var(--line);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--ink)}
+.link{font-size:var(--t-s);font-weight:500;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:6px}
+.link:hover{text-decoration-thickness:2px}
+
+/* Header */
+.site-header{position:fixed;inset:0 0 auto 0;z-index:40;color:var(--porcelain);transition:background-color .3s ease,color .3s ease,box-shadow .3s ease}
+.site-header.is-solid{background:rgba(242,244,241,.9);color:var(--ink);box-shadow:0 1px 0 var(--line);-webkit-backdrop-filter:saturate(1.4) blur(14px);backdrop-filter:saturate(1.4) blur(14px)}
+.header-row{display:flex;align-items:center;justify-content:space-between;gap:24px;height:80px}
+.brand{display:inline-flex;align-items:center;gap:12px;text-decoration:none;font-family:var(--display);font-size:24px;font-weight:400;letter-spacing:.01em}
+.brand svg{width:28px;height:28px}
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{font-size:var(--t-s);text-decoration:none;opacity:.86}
+.nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px}
+.header-actions{display:flex;align-items:center;gap:12px}
+.site-header .btn{min-height:44px;padding:0 22px}
+.site-header:not(.is-solid) .btn-header{background:var(--lichen);color:var(--ink)}
+.site-header.is-solid .btn-header{background:var(--ink);color:var(--porcelain)}
+.menu-toggle{display:none;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid currentColor;background:transparent;cursor:pointer;font-size:var(--t-s)}
+.mobile-nav{display:none}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;background:radial-gradient(60% 70% at 78% 42%,rgba(210,220,158,.10),transparent 62%),var(--ink);color:var(--porcelain);padding:calc(80px + clamp(48px,8vw,112px)) 0 clamp(64px,8vw,112px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(32px,5vw,80px);align-items:center}
+.hero h1{font-size:var(--t-3xl);line-height:1.02;max-width:15ch}
+.hero-lead{margin-top:32px;max-width:54ch;font-size:var(--t-l);line-height:1.55;color:rgba(242,244,241,.82)}
+.hero-actions{margin-top:44px;display:flex;flex-wrap:wrap;align-items:center;gap:20px 28px}
+.hero .link{color:var(--porcelain)}
+.hero-art{margin:0;display:grid;gap:20px;justify-items:center}
+.hero-art canvas{width:100%;max-width:440px;aspect-ratio:1/1}
+.hero-art figcaption{max-width:34ch;text-align:center;font-family:var(--display);font-style:italic;font-weight:300;font-size:var(--t-l);line-height:1.4;color:rgba(242,244,241,.86)}
+.legend{display:flex;flex-wrap:wrap;justify-content:center;gap:8px 24px;font-size:var(--t-xs);color:rgba(242,244,241,.7)}
+.legend span{display:inline-flex;align-items:center;gap:8px}
+.legend i{display:inline-block;width:22px;height:2px;border-radius:2px}
+.legend .chrono{background:rgba(242,244,241,.85)}
+.legend .bio{background:var(--lichen);height:3px}
+
+/* Sections */
+.section{padding:var(--section) 0;scroll-margin-top:80px}
+.split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(24px,5vw,80px);align-items:start}
+.section-title{font-size:var(--t-2xl);line-height:1.08;max-width:14ch}
+.section-lead{margin-top:20px;max-width:50ch;color:var(--stone)}
+.split .section-lead{margin-top:0;padding-top:10px}
+.split-head{position:sticky;top:112px}
+.split-head .section-lead{margin-top:20px;padding-top:0}
+
+/* Level badges */
+.lvl{display:inline-grid;place-items:center;width:26px;height:26px;border-radius:6px;font-family:var(--display);font-size:15px;line-height:1;flex:0 0 auto}
+.lvl-a{background:var(--ink);color:var(--porcelain)}
+.lvl-b{background:var(--lake);color:var(--porcelain)}
+.lvl-c{background:var(--mist);color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+
+/* Approach */
+.scale{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;margin-top:clamp(48px,6vw,72px)}
+.level{padding-right:28px}
+.level-bar{height:10px;margin-bottom:28px}
+.level-a .level-bar{background:var(--ink)}
+.level-b .level-bar{background:var(--lake)}
+.level-c .level-bar{background:var(--mist);box-shadow:inset 0 0 0 1px var(--line)}
+.level-d .level-bar{background:repeating-linear-gradient(135deg,var(--porcelain) 0 6px,rgba(14,42,47,.28) 6px 7px);box-shadow:inset 0 0 0 1px var(--line)}
+.level-letter{font-family:var(--display);font-weight:300;font-size:56px;line-height:1}
+.level h3{margin-top:16px;font-family:var(--body);font-size:var(--t-m);font-weight:600;line-height:1.35;letter-spacing:0}
+.level p{margin-top:10px;font-size:var(--t-s);color:var(--stone);max-width:30ch}
+.verdict{display:inline-flex;margin-top:18px;min-height:30px;align-items:center;padding:0 12px;border-radius:999px;font-size:var(--t-xs);font-weight:500;border:1px solid var(--line)}
+.level-a .verdict,.level-b .verdict{background:var(--ink);color:var(--porcelain);border-color:transparent}
+.level-d .verdict{text-decoration:line-through;text-decoration-thickness:1px}
+
+/* Program explorer */
+.programs-section{background:var(--mist)}
+.explorer{display:grid;grid-template-columns:minmax(240px,300px) minmax(0,1fr);gap:clamp(28px,4vw,56px);margin-top:clamp(40px,5vw,64px);align-items:start}
+.ptabs{display:flex;flex-direction:column;border-top:1px solid rgba(14,42,47,.2);position:sticky;top:104px}
+.ptab{display:grid;gap:4px;text-align:left;padding:16px 0 16px 18px;border:0;border-bottom:1px solid rgba(14,42,47,.2);background:transparent;cursor:pointer;position:relative;color:var(--stone)}
+.ptab::before{content:"";position:absolute;left:0;top:16px;bottom:16px;width:2px;background:transparent;transition:background-color .2s ease}
+.ptab:hover{color:var(--ink)}
+.ptab[aria-selected="true"]{color:var(--ink)}
+.ptab[aria-selected="true"]::before{background:var(--ink)}
+.ptab-name{font-family:var(--display);font-size:20px;line-height:1.2;font-weight:400}
+.ptab-dur{font-size:var(--t-xs)}
+.ppanel{background:var(--white);padding:clamp(24px,4vw,52px);min-width:0}
+.ppanel:focus-visible{outline:2px solid var(--ink);outline-offset:4px;border-radius:0}
+.ppanel-head{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:20px 48px;align-items:start;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.ppanel-head h3{font-size:clamp(30px,3.2vw,46px);line-height:1.08;min-width:0}
+.pwho{margin-top:14px;max-width:54ch;color:var(--stone)}
+.pmeta{margin:0;display:grid;gap:14px;min-width:190px}
+.pmeta dt{font-size:var(--t-xs);color:var(--stone)}
+.pmeta dd{margin:2px 0 0;font-size:var(--t-s);font-weight:500;max-width:26ch}
+.pcols{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(28px,4vw,56px);padding-top:32px}
+.pblock h4{font-family:var(--body);font-size:var(--t-s);font-weight:600;letter-spacing:0;margin:0 0 16px}
+.pmethods{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.pmethods li{display:grid;grid-template-columns:26px minmax(0,1fr);gap:12px;align-items:start;font-size:var(--t-s);line-height:1.45}
+.pmethods li span:last-child{padding-top:3px}
+.stay{list-style:none;margin:0;padding:0}
+.stay>li{display:grid;grid-template-columns:112px minmax(0,1fr);gap:16px;border-top:1px solid var(--line);padding:16px 0}
+.stay>li:first-child{border-top:0;padding-top:0}
+.stay-day{font-family:var(--display);font-size:18px;line-height:1.3}
+.stay-title{font-weight:600;font-size:var(--t-s)}
+.stay ul{margin:6px 0 0;padding-left:18px;font-size:var(--t-s);color:var(--stone)}
+.stay ul li{margin-top:3px}
+.after{margin-top:12px;font-size:var(--t-s);padding-left:14px;border-left:2px solid var(--lichen);max-width:62ch}
+.pfoot{margin-top:32px;padding-top:24px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px 32px}
+.pclinics{font-size:var(--t-s);color:var(--stone);max-width:60ch}
+.pclinics strong{font-weight:500;color:var(--ink)}
+.note{margin-top:20px;font-size:var(--t-xs);color:var(--stone);max-width:96ch}
+
+/* Methods catalog */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(36px,4vw,52px)}
+.filter{min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--white);cursor:pointer;font-size:var(--t-s);transition:background-color .2s ease,color .2s ease,border-color .2s ease}
+.filter:hover{border-color:var(--ink)}
+.filter[aria-pressed="true"]{background:var(--ink);color:var(--porcelain);border-color:var(--ink)}
+.filter-count{margin-top:16px;font-size:var(--t-xs);color:var(--stone)}
+.catalog{list-style:none;margin:24px 0 0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px}
+.method{border-top:1px solid var(--line);padding:22px 0 26px}
+.method[hidden]{display:none}
+.method-top{display:flex;align-items:center;gap:10px;font-size:var(--t-xs);color:var(--stone)}
+.method h3{margin-top:12px;font-family:var(--body);font-size:var(--t-m);font-weight:600;line-height:1.35;letter-spacing:0}
+.method p{margin-top:8px;font-size:var(--t-s);color:var(--stone);max-width:44ch}
+.method .method-progs{margin-top:10px;font-size:var(--t-xs);color:var(--ink)}
+
+/* Destinations */
+.destinations-section{background:var(--white)}
+.dest-intro{display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:24px 48px;margin-bottom:clamp(40px,5vw,64px)}
+.dest-intro .section-title{max-width:16ch}
+.dest-intro .section-lead{margin-top:0;max-width:44ch}
+.dest-list{list-style:none;margin:0;padding:0;border-bottom:1px solid var(--line)}
+.dest{display:grid;grid-template-columns:minmax(0,6fr) minmax(0,5fr) 170px;gap:12px 48px;align-items:baseline;padding:30px 0;border-top:1px solid var(--line)}
+.dest-city{font-family:var(--display);font-weight:300;font-size:clamp(30px,3.9vw,52px);line-height:1.05;letter-spacing:-.01em;min-width:0}
+.dest-country{display:block;margin-top:10px;font-family:var(--body);font-size:var(--t-s);letter-spacing:0;color:var(--stone)}
+.dest-text p{max-width:46ch}
+.dest-text .dest-clinics{margin-top:8px;font-size:var(--t-xs);color:var(--stone)}
+.visa{justify-self:end;display:inline-flex;align-items:center;min-height:32px;padding:0 14px;border-radius:999px;border:1px solid var(--line);font-size:var(--t-xs);font-weight:500;white-space:nowrap}
+.visa-free{background:var(--lichen);border-color:transparent}
+
+/* Process */
+.process-section{background:var(--mist)}
+.steps{list-style:none;margin:clamp(48px,6vw,72px) 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:0 28px;counter-reset:step}
+.step{counter-increment:step;border-top:1px solid rgba(14,42,47,.28);padding-top:24px}
+.step::before{content:counter(step);display:block;font-family:var(--display);font-weight:300;font-size:44px;line-height:1;margin-bottom:20px}
+.step h3{font-family:var(--body);font-size:var(--t-m);font-weight:600;line-height:1.35;letter-spacing:0}
+.step p{margin-top:10px;font-size:var(--t-s);color:var(--stone)}
+
+/* Included */
+.included{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 48px;margin:0}
+.included div{border-top:1px solid var(--line);padding-top:20px}
+.included dt{font-weight:600}
+.included dd{margin:8px 0 0;font-size:var(--t-s);color:var(--stone);max-width:40ch}
+
+/* FAQ */
+.faq-section{background:var(--white)}
+.faq{border-bottom:1px solid var(--line)}
+.faq details{border-top:1px solid var(--line)}
+.faq summary{list-style:none;cursor:pointer;display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:26px 0;font-family:var(--display);font-weight:400;font-size:var(--t-l);line-height:1.3}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"";flex:0 0 14px;height:14px;align-self:center;background:linear-gradient(var(--ink),var(--ink)) center/14px 1.5px no-repeat,linear-gradient(var(--ink),var(--ink)) center/1.5px 14px no-repeat;transition:transform .25s ease}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 0 28px;max-width:64ch;color:var(--stone)}
+
+/* Closing band and footer */
+.closing{background:var(--ink);color:var(--porcelain);padding:var(--section) 0}
+.closing-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:32px 80px;align-items:end}
+.closing h2{font-size:var(--t-2xl);line-height:1.08;max-width:16ch}
+.closing p{color:rgba(242,244,241,.8);max-width:42ch}
+.closing .btn{margin-top:28px}
+.site-footer{background:var(--ink);color:rgba(242,244,241,.72);font-size:var(--t-xs);line-height:1.6}
+.footer-grid{display:grid;grid-template-columns:minmax(0,4fr) minmax(0,5fr) minmax(0,3fr);gap:28px 56px;padding-top:40px;padding-bottom:48px;border-top:1px solid var(--line-dark)}
+.site-footer .brand{color:var(--porcelain);font-size:20px}
+.footer-links{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.footer-links a{text-decoration:none}
+.footer-links a:hover{text-decoration:underline;text-underline-offset:4px}
+.site-footer p+p{margin-top:10px}
+
+/* Booking drawer */
+.drawer{margin:0 0 0 auto;padding:0;border:0;width:min(560px,100%);height:100%;max-height:100%;max-width:100%;background:var(--porcelain);color:var(--ink);transform:translateX(32px);opacity:0;transition:transform .35s cubic-bezier(.2,.7,.2,1),opacity .35s ease}
+.drawer.is-open{transform:none;opacity:1}
+.drawer::backdrop{background:rgba(14,42,47,.5);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+.drawer-inner{display:flex;flex-direction:column;height:100%}
+.drawer-head{display:flex;align-items:start;justify-content:space-between;gap:24px;padding:32px clamp(20px,5vw,44px) 20px;border-bottom:1px solid var(--line)}
+.drawer-head h2{font-size:clamp(28px,3vw,36px);line-height:1.1}
+.drawer-head p{margin-top:10px;font-size:var(--t-s);color:var(--stone);max-width:40ch}
+.close{flex:0 0 44px;width:44px;height:44px;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;position:relative}
+.close::before,.close::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:1.5px;background:var(--ink)}
+.close::before{transform:translate(-50%,-50%) rotate(45deg)}
+.close::after{transform:translate(-50%,-50%) rotate(-45deg)}
+.close:hover{border-color:var(--ink)}
+.drawer-body{flex:1;overflow-y:auto;padding:28px clamp(20px,5vw,44px) 40px}
+.form{display:grid;gap:22px}
+.form[hidden]{display:none}
+.row-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.field{display:grid;gap:8px}
+.field label,.field legend,.field-label{font-size:var(--t-s);font-weight:500}
+.optional{font-weight:400;color:var(--stone)}
+.input,.select,.textarea{width:100%;font:inherit;font-size:16px;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:12px;padding:14px 16px;transition:border-color .2s ease,box-shadow .2s ease}
+.select{appearance:none;-webkit-appearance:none;padding-right:44px;background:var(--white) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1.5l5 5 5-5' fill='none' stroke='%230E2A2F' stroke-width='1.4'/%3E%3C/svg%3E") no-repeat right 18px center}
+.textarea{min-height:104px;resize:vertical}
+.input:focus,.select:focus,.textarea:focus{outline:none;border-color:var(--ink);box-shadow:0 0 0 3px var(--lichen)}
+.field.has-error .input,.field.has-error .select{border-color:var(--error)}
+.error{font-size:var(--t-xs);color:var(--error)}
+.error:empty{display:none}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;width:1px;height:1px}
+.chip span{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--line);background:var(--white);font-size:var(--t-s);cursor:pointer;transition:background-color .2s ease,color .2s ease,border-color .2s ease}
+.chip input:checked+span{background:var(--ink);color:var(--porcelain);border-color:var(--ink)}
+.chip input:focus-visible+span{outline:2px solid var(--ink);outline-offset:3px}
+.stepper{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;background:var(--white);width:max-content}
+.stepper button{width:44px;height:44px;border:0;background:transparent;cursor:pointer;font-size:20px;line-height:1;border-radius:999px}
+.stepper button:disabled{opacity:.3;cursor:default}
+.stepper output{min-width:36px;text-align:center;font-weight:600;font-variant-numeric:tabular-nums}
+.consent{display:flex;gap:12px;align-items:flex-start;font-size:var(--t-s);color:var(--stone)}
+.consent input{margin-top:4px;width:18px;height:18px;accent-color:var(--ink);flex:0 0 auto}
+.consent a{color:var(--ink)}
+.form .btn{width:100%;margin-top:6px}
+.result{display:grid;gap:18px}
+.result[hidden]{display:none}
+.result h3{font-size:clamp(26px,3vw,32px);line-height:1.15}
+.result p{color:var(--stone);font-size:var(--t-s)}
+.summary{width:100%;min-height:220px;font:inherit;font-size:var(--t-s);line-height:1.55;color:var(--ink);background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px;resize:none}
+.result-actions{display:grid;gap:12px}
+.result-actions .btn{width:100%}
+.result-actions .btn[hidden]{display:none}
+.preview-note{font-size:var(--t-xs);color:var(--stone);border-left:2px solid var(--lichen);padding-left:12px}
+.preview-note[hidden]{display:none}
+.status{font-size:var(--t-s);font-weight:500;min-height:1.6em}
+.text-btn{background:none;border:0;padding:0;justify-self:start;cursor:pointer}
+
+/* Responsive */
+@media (max-width:1240px){
+  .ppanel-head{grid-template-columns:minmax(0,1fr)}
+  .pmeta{grid-template-columns:repeat(2,minmax(0,max-content));gap:14px 40px}
+}
+@media (max-width:1100px){
+  .pcols{grid-template-columns:minmax(0,1fr)}
+  .catalog{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:1040px){
+  .steps{grid-template-columns:repeat(2,minmax(0,1fr));gap:40px 28px}
+  .scale{grid-template-columns:repeat(2,minmax(0,1fr));gap:48px 0}
+}
+@media (max-width:900px){
+  .nav{display:none}
+  .menu-toggle{display:inline-flex;align-items:center}
+  .mobile-nav{display:block;position:absolute;left:0;right:0;top:80px;background:var(--porcelain);color:var(--ink);box-shadow:0 1px 0 var(--line)}
+  .mobile-nav[hidden]{display:none}
+  .mobile-nav ul{list-style:none;margin:0;padding:8px var(--gutter) 20px}
+  .mobile-nav a{display:block;padding:14px 0;border-bottom:1px solid var(--line);text-decoration:none;font-size:var(--t-m)}
+  .hero-grid,.split,.closing-grid,.footer-grid,.explorer{grid-template-columns:minmax(0,1fr)}
+  .split-head{position:static}
+  .hero-art canvas{max-width:340px}
+  .ptabs{position:static;flex-direction:row;overflow-x:auto;border-top:0;gap:8px;padding:2px 2px 8px;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch}
+  .ptab{flex:0 0 auto;border:1px solid var(--line);border-radius:999px;padding:10px 16px;background:var(--white);scroll-snap-align:start}
+  .ptab::before{display:none}
+  .ptab[aria-selected="true"]{background:var(--ink);color:var(--porcelain);border-color:var(--ink)}
+  .ptab-name{font-family:var(--body);font-size:var(--t-s);font-weight:500;white-space:nowrap}
+  .ptab-dur{display:none}
+  .ppanel-head{grid-template-columns:minmax(0,1fr)}
+  .dest{grid-template-columns:minmax(0,1fr) auto}
+  .dest-text{grid-column:1/-1;grid-row:2}
+  .visa{grid-column:2;grid-row:1;align-self:center}
+}
+@media (max-width:600px){
+  .header-actions .btn-header{display:none}
+  .steps,.scale,.included,.row-2,.catalog{grid-template-columns:minmax(0,1fr)}
+  .level{padding-right:0}
+  .hero-actions .btn{width:100%}
+  .stay>li{grid-template-columns:minmax(0,1fr);gap:4px}
+  .dest{grid-template-columns:minmax(0,1fr)}
+  .visa{grid-column:1;grid-row:auto;justify-self:start}
+  .dest-text{grid-row:auto}
+  .pfoot .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{transition-duration:.01ms !important;animation-duration:.01ms !important}
+}
+</style>
+</head>
+<body>
+
+<header class="site-header" id="header">
+  <div class="wrap header-row">
+    <a class="brand" href="#top" aria-label="Longa Via, на главную">
+      <svg viewBox="0 0 28 28" fill="none" aria-hidden="true"><circle cx="14" cy="14" r="12.5" stroke="currentColor" stroke-width="1"/><circle cx="14" cy="14" r="8" stroke="currentColor" stroke-width="1" opacity=".6"/><path d="M14 14V3.5" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"/><path d="M14 14l6.5 4" stroke="#D2DC9E" stroke-width="2" stroke-linecap="round"/></svg>
+      <span>Longa Via</span>
+    </a>
+    <nav class="nav" aria-label="Основная навигация">
+      <a href="#approach">Подход</a>
+      <a href="#programs">Программы</a>
+      <a href="#methods">Методики</a>
+      <a href="#destinations">Направления</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <div class="header-actions">
+      <button class="btn btn-header" type="button" data-book>Забронировать</button>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" id="menu-toggle">Меню</button>
+    </div>
+  </div>
+  <nav class="mobile-nav" id="mobile-nav" hidden aria-label="Мобильная навигация">
+    <ul>
+      <li><a href="#approach">Подход</a></li>
+      <li><a href="#programs">Программы</a></li>
+      <li><a href="#methods">Методики</a></li>
+      <li><a href="#destinations">Направления</a></li>
+      <li><a href="#process">Как это устроено</a></li>
+      <li><a href="#faq">Вопросы</a></li>
+      <li><a href="#booking" data-book>Забронировать консультацию</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="top">
+
+  <section class="hero" id="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1>Лучшие клиники мира. Остальное мы берём на себя.</h1>
+        <p class="hero-lead">Восемь программ и почти сорок методик в девяти странах, у каждой методики есть оценка доказательности. Подбираем клинику, договариваемся о программе и ведём поездку от визы до разбора результатов дома.</p>
+        <div class="hero-actions">
+          <button class="btn btn-light" type="button" data-book>Забронировать консультацию</button>
+          <a class="link" href="#programs">Смотреть программы</a>
+        </div>
+      </div>
+      <figure class="hero-art">
+        <canvas id="rings" width="440" height="440" aria-hidden="true"></canvas>
+        <figcaption>Паспорт считает годы. Обследование показывает, как они прошли.</figcaption>
+        <div class="legend" aria-hidden="true">
+          <span><i class="chrono"></i>Хронологический возраст</span>
+          <span><i class="bio"></i>Биологический возраст</span>
+        </div>
+      </figure>
+    </div>
+  </section>
+
+  <section class="section" id="approach" aria-labelledby="approach-title">
+    <div class="wrap">
+      <div class="split">
+        <h2 class="section-title" id="approach-title">Только то, что работает</h2>
+        <p class="section-lead">Рынок долголетия полон громких обещаний. Мы сверяем каждую методику с клиническими исследованиями и решениями регуляторов. Уровень доказательности указан у каждой методики в программах и каталоге.</p>
+      </div>
+      <div class="scale" role="list">
+        <div class="level level-a" role="listitem">
+          <div class="level-bar"></div>
+          <div class="level-letter" aria-hidden="true">A</div>
+          <h3>Доказано и одобрено регуляторами</h3>
+          <p>Комплексные обследования, тренировки под контролем врача, роботизированная реабилитация, стимуляция спинного мозга.</p>
+          <span class="verdict">Рекомендуем</span>
+        </div>
+        <div class="level level-b" role="listitem">
+          <div class="level-bar"></div>
+          <div class="level-letter" aria-hidden="true">B</div>
+          <h3>Доказано для конкретных заболеваний</h3>
+          <p>Нейростимуляция, гидрореабилитация, плазмообмен при ранней болезни Альцгеймера.</p>
+          <span class="verdict">По показаниям</span>
+        </div>
+        <div class="level level-c" role="listitem">
+          <div class="level-bar"></div>
+          <div class="level-letter" aria-hidden="true">C</div>
+          <h3>Ранние исследования</h3>
+          <p>Методики с обнадёживающими, но пока предварительными данными: клеточная терапия, кислородная терапия для омоложения.</p>
+          <span class="verdict">Обсуждаем с врачом</span>
+        </div>
+        <div class="level level-d" role="listitem">
+          <div class="level-bar"></div>
+          <div class="level-letter" aria-hidden="true">D</div>
+          <h3>Нет доказательств</h3>
+          <p>Экзосомы, «молодая плазма», капельницы NAD+, генная терапия вне клинических исследований.</p>
+          <span class="verdict">Не продаём</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section programs-section" id="programs" aria-labelledby="programs-title">
+    <div class="wrap">
+      <div class="split">
+        <h2 class="section-title" id="programs-title">Восемь программ</h2>
+        <p class="section-lead">Каждая собрана из методик ведущих клиник мира и расписана по дням. Выберите программу, чтобы увидеть, что в неё входит и как пройдёт поездка. Клинику, даты и отель подбираем под вас.</p>
+      </div>
+      <div class="explorer">
+        <div class="ptabs" role="tablist" aria-label="Программы" aria-orientation="vertical" id="ptabs"></div>
+        <article class="ppanel" id="ppanel" role="tabpanel" tabindex="0" aria-live="polite"></article>
+      </div>
+      <p class="note">Названия клиник приведены как ориентир по уровню. Конкретную клинику подбираем после консультации; мы не являемся официальным представителем перечисленных клиник. Программу и назначения утверждает врач клиники.</p>
+    </div>
+  </section>
+
+  <section class="section" id="methods" aria-labelledby="methods-title">
+    <div class="wrap">
+      <div class="split">
+        <h2 class="section-title" id="methods-title">Каталог методик</h2>
+        <p class="section-lead">Методики, которые применяют ведущие клиники обследования, реабилитации и долголетия. У каждой указаны уровень доказательности и программы, в которые она входит.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Фильтр методик" id="filters">
+        <button class="filter" type="button" aria-pressed="true" data-cat="all">Все</button>
+        <button class="filter" type="button" aria-pressed="false" data-cat="Диагностика">Диагностика</button>
+        <button class="filter" type="button" aria-pressed="false" data-cat="Восстановление">Восстановление</button>
+        <button class="filter" type="button" aria-pressed="false" data-cat="Долголетие и метаболизм">Долголетие и метаболизм</button>
+        <button class="filter" type="button" aria-pressed="false" data-cat="Регенерация">Регенерация</button>
+      </div>
+      <p class="filter-count" id="filter-count" aria-live="polite"></p>
+      <ul class="catalog" id="catalog"></ul>
+    </div>
+  </section>
+
+  <section class="section destinations-section" id="destinations" aria-labelledby="destinations-title">
+    <div class="wrap">
+      <div class="dest-intro">
+        <h2 class="section-title" id="destinations-title">Куда мы возим</h2>
+        <p class="section-lead">Девять направлений. Выбираем страны, где клиники принимают пациентов из России, а въезд и оплата решаются без лишних сложностей.</p>
+      </div>
+      <ul class="dest-list">
+        <li class="dest">
+          <h3 class="dest-city">Монтрё и Женева<span class="dest-country">Швейцария</span></h3>
+          <div class="dest-text"><p>Программы долголетия с проживанием у Женевского озера и в Альпах.</p><p class="dest-clinics">Clinique La Prairie, Chenot Palace, Nescens</p></div>
+          <span class="visa">Шенгенская виза</span>
+        </li>
+        <li class="dest">
+          <h3 class="dest-city">Тироль и Бавария<span class="dest-country">Австрия и Германия</span></h3>
+          <div class="dest-text"><p>Медицинские курорты: метод Майра, лечебное питание, диагностика, программы для сна.</p><p class="dest-clinics">Lanserhof</p></div>
+          <span class="visa">Шенгенская виза</span>
+        </li>
+        <li class="dest">
+          <h3 class="dest-city">Дубай и Абу-Даби<span class="dest-country">ОАЭ</span></h3>
+          <div class="dest-text"><p>Центры долголетия с государственной лицензией, чекапы, кислородная терапия, реабилитация.</p><p class="dest-clinics">Aviv Clinics, Institute for Healthier Living Abu Dhabi, Pura Longevity Clinic, Longevium</p></div>
+          <span class="visa visa-free">Без визы</span>
+        </li>
+        <li class="dest">
+          <h3 class="dest-city">Средиземноморье<span class="dest-country">Испания и Италия</span></h3>
+          <div class="dest-text"><p>Клиники-курорты у моря: метаболическое здоровье, питание, восстановление, программы для двоих.</p><p class="dest-clinics">SHA Wellness Clinic, Palazzo Fiuggi</p></div>
+          <span class="visa">Шенгенская виза</span>
+        </li>
+        <li class="dest">
+          <h3 class="dest-city">Токио и Киото<span class="dest-country">Япония</span></h3>
+          <div class="dest-text"><p>Точная диагностика и клеточная терапия в клиниках, зарегистрированных Минздравом Японии.</p></div>
+          <span class="visa">Японская виза</span>
+        </li>
+        <li class="dest">
+          <h3 class="dest-city">Аньцзи и Шанхай<span class="dest-country">Китай</span></h3>
+          <div class="dest-text"><p>Программы долголетия в горах провинции Чжэцзян, в трёх часах от Шанхая.</p><p class="dest-clinics">Clinique La Prairie</p></div>
+          <span class="visa visa-free">Без визы, до 30 дней</span>
+        </li>
+        <li class="dest">
+          <h3 class="dest-city">Стамбул<span class="dest-country">Турция</span></h3>
+          <div class="dest-text"><p>Реабилитация, ортопедия и обследования в трёх часах полёта от Москвы.</p></div>
+          <span class="visa visa-free">Без визы</span>
+        </li>
+        <li class="dest">
+          <h3 class="dest-city">Пхукет и Бангкок<span class="dest-country">Таиланд</span></h3>
+          <div class="dest-text"><p>Международные госпитали Бангкока и восстановление в тропиках круглый год.</p></div>
+          <span class="visa visa-free">Без визы, до 30 дней</span>
+        </li>
+        <li class="dest">
+          <h3 class="dest-city">Нью-Йорк, Чикаго, Сан-Диего<span class="dest-country">США</span></h3>
+          <div class="dest-text"><p>Диагностические центры и реабилитация мирового уровня для клиентов с действующей визой.</p><p class="dest-clinics">Human Longevity, Fountain Life, Biograph, Shirley Ryan AbilityLab</p></div>
+          <span class="visa">Виза США</span>
+        </li>
+      </ul>
+      <p class="note">Визовые условия указаны на ноябрь 2026 года, перед каждой поездкой проверяем их заново. Названия клиник приведены как ориентир по уровню.</p>
+    </div>
+  </section>
+
+  <section class="section process-section" id="process" aria-labelledby="process-title">
+    <div class="wrap">
+      <div class="split">
+        <h2 class="section-title" id="process-title">Как это устроено</h2>
+        <p class="section-lead">Один куратор ведёт вас от первого звонка до возвращения домой.</p>
+      </div>
+      <ol class="steps">
+        <li class="step"><h3>Заявка</h3><p>Оставляете контакты и коротко рассказываете о цели поездки. Это займёт минуту.</p></li>
+        <li class="step"><h3>Разговор с куратором</h3><p>Уточняем задачи и пожелания. При необходимости подключаем врача-консультанта.</p></li>
+        <li class="step"><h3>Подбор и бронирование</h3><p>Предлагаем две-три клиники с программами и сметой, бронируем выбранную.</p></li>
+        <li class="step"><h3>Поездка</h3><p>Виза, перелёт, трансфер, отель и медицинский переводчик. Куратор на связи всю поездку.</p></li>
+        <li class="step"><h3>После возвращения</h3><p>Переводим заключения и помогаем выстроить план вместе с вашим врачом.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section" id="included" aria-labelledby="included-title">
+    <div class="wrap split">
+      <div class="split-head">
+        <h2 class="section-title" id="included-title">Что входит в сопровождение</h2>
+        <p class="section-lead">Медицинскую часть ведёт клиника. Всё вокруг неё организуем мы.</p>
+      </div>
+      <dl class="included">
+        <div><dt>Подбор клиники</dt><dd>Сравниваем программы, врачей и условия, объясняем разницу простыми словами.</dd></div>
+        <div><dt>Документы и визы</dt><dd>Медицинские приглашения, визовая поддержка, перевод выписок.</dd></div>
+        <div><dt>Перелёт и трансферы</dt><dd>Бизнес-класс или удобные стыковки, встреча в аэропорту, водитель на время программы.</dd></div>
+        <div><dt>Проживание</dt><dd>Номер в клинике или отель рядом, размещение для сопровождающих.</dd></div>
+        <div><dt>Переводчик</dt><dd>Медицинский переводчик на консультациях и процедурах.</dd></div>
+        <div><dt>Личный куратор</dt><dd>Один человек на связи до, во время и после поездки.</dd></div>
+        <div><dt>Страхование</dt><dd>Полис, который покрывает поездку и непредвиденные ситуации.</dd></div>
+        <div><dt>Разбор результатов</dt><dd>Перевод заключений и встреча с врачом после возвращения.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="section faq-section" id="faq" aria-labelledby="faq-title">
+    <div class="wrap split">
+      <div class="split-head">
+        <h2 class="section-title" id="faq-title">Вопросы</h2>
+        <p class="section-lead">Не нашли ответ? Задайте вопрос куратору в заявке.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Вы оказываете медицинские услуги?</summary>
+          <p>Нет. Медицинскую помощь оказывают клиники по своим лицензиям и по договору с вами. Мы подбираем клинику, организуем поездку и сопровождаем вас.</p>
+        </details>
+        <details>
+          <summary>Сколько это стоит?</summary>
+          <p>Ориентиры по медицинской части на 2026 год по открытым данным клиник: однодневный чекап в диагностическом центре стоит от $4 500 до $25 000, неделя в клинике долголетия — от €3 500 до CHF 40 000, курс кислородной терапии на 12 недель — около $50 000, клеточная терапия в Японии — от $10 000 до $40 000. Перелёт, проживание и сопровождение рассчитываем отдельно. Точную смету присылаем после консультации.</p>
+        </details>
+        <details>
+          <summary>Как оплатить лечение из России?</summary>
+          <p>Подбираем клиники и способы оплаты, которые работают для клиентов из России, и заранее объясняем схему для каждой страны.</p>
+        </details>
+        <details>
+          <summary>Нужна ли виза?</summary>
+          <p>В ОАЭ, Турцию, Таиланд и Китай виза не нужна. Для Швейцарии, Австрии, Германии, Испании и Италии нужна шенгенская, для Японии и США — национальная виза. Поможем с документами и медицинскими приглашениями.</p>
+        </details>
+        <details>
+          <summary>Почему в программах указаны буквы A, B и C?</summary>
+          <p>Это уровень доказательности методики. A — доказано и одобрено регуляторами, B — доказано для конкретных заболеваний, C — ранние исследования. Методики без доказательств мы не продаём.</p>
+        </details>
+        <details>
+          <summary>Можно поехать с семьёй?</summary>
+          <p>Да. Подберём программы для двоих и проживание для сопровождающих.</p>
+        </details>
+        <details>
+          <summary>Что вы делаете с моими данными?</summary>
+          <p>Используем контакты только для связи по заявке и не передаём их третьим лицам без вашего согласия. Медицинские документы отправляем в клинику только с вашего разрешения.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="closing" id="booking" aria-labelledby="closing-title">
+    <div class="wrap closing-grid">
+      <h2 id="closing-title">Начните с короткого разговора с куратором</h2>
+      <div>
+        <p>Оставьте контакты. Куратор свяжется с вами, уточнит задачи и предложит две-три программы на выбор.</p>
+        <button class="btn btn-light" type="button" data-book>Забронировать консультацию</button>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-grid">
+    <div>
+      <a class="brand" href="#top">Longa Via</a>
+      <p style="margin-top:12px">Организация медицинских поездок в клиники мира.</p>
+      <p>© <span id="year">2026</span> Longa Via</p>
+    </div>
+    <div>
+      <p>Медицинские услуги оказывают клиники на основании своих лицензий. Информация на сайте не является медицинской рекомендацией и публичной офертой.</p>
+      <p>Имеются противопоказания, необходима консультация специалиста.</p>
+    </div>
+    <ul class="footer-links">
+      <li><a href="#programs">Программы</a></li>
+      <li><a href="#methods">Методики</a></li>
+      <li><a href="#destinations">Направления</a></li>
+      <li><a href="#faq">Вопросы</a></li>
+      <li><a href="#privacy">Политика обработки персональных данных</a></li>
+    </ul>
+  </div>
+</footer>
+
+<dialog class="drawer" id="drawer" aria-labelledby="drawer-title">
+  <div class="drawer-inner">
+    <div class="drawer-head">
+      <div>
+        <h2 id="drawer-title">Забронировать консультацию</h2>
+        <p>Куратор свяжется с вами удобным способом и предложит программу.</p>
+      </div>
+      <button class="close" type="button" id="drawer-close" aria-label="Закрыть"></button>
+    </div>
+    <div class="drawer-body">
+      <form class="form" id="booking-form" novalidate>
+        <div class="row-2">
+          <div class="field" id="f-name">
+            <label for="name">Имя</label>
+            <input class="input" id="name" name="name" type="text" autocomplete="name" required>
+            <span class="error" id="name-error"></span>
+          </div>
+          <div class="field" id="f-phone">
+            <label for="phone">Телефон</label>
+            <input class="input" id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7" required>
+            <span class="error" id="phone-error"></span>
+          </div>
+        </div>
+        <fieldset class="field">
+          <legend>Как с вами связаться</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="channel" id="ch-wa" value="WhatsApp" checked><span>WhatsApp</span></label>
+            <label class="chip"><input type="radio" name="channel" id="ch-tg" value="Telegram"><span>Telegram</span></label>
+            <label class="chip"><input type="radio" name="channel" id="ch-call" value="Звонок"><span>Звонок</span></label>
+          </div>
+        </fieldset>
+        <div class="field" id="f-email">
+          <label for="email">Email <span class="optional">необязательно</span></label>
+          <input class="input" id="email" name="email" type="email" autocomplete="email">
+          <span class="error" id="email-error"></span>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="program">Программа</label>
+            <select class="select" id="program" name="program"><option>Помогите выбрать</option></select>
+          </div>
+          <div class="field">
+            <label for="destination">Направление</label>
+            <select class="select" id="destination" name="destination">
+              <option>Помогите выбрать</option>
+              <option>Швейцария</option>
+              <option>Австрия или Германия</option>
+              <option>ОАЭ</option>
+              <option>Испания или Италия</option>
+              <option>Япония</option>
+              <option>Китай</option>
+              <option>Турция</option>
+              <option>Таиланд</option>
+              <option>США</option>
+            </select>
+          </div>
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="when">Когда удобно поехать</label>
+            <select class="select" id="when" name="when"><option>Даты гибкие</option></select>
+          </div>
+          <div class="field">
+            <span class="field-label" id="guests-label">Сколько человек</span>
+            <div class="stepper" role="group" aria-labelledby="guests-label">
+              <button type="button" id="guests-minus" aria-label="Меньше">−</button>
+              <output id="guests" aria-live="polite">1</output>
+              <button type="button" id="guests-plus" aria-label="Больше">+</button>
+            </div>
+          </div>
+        </div>
+        <div class="field">
+          <label for="comment">Цель поездки и пожелания <span class="optional">необязательно</span></label>
+          <textarea class="textarea" id="comment" name="comment" placeholder="Например: хочу полное обследование и неделю отдыха с супругой"></textarea>
+        </div>
+        <div class="field" id="f-consent">
+          <label class="consent" for="consent">
+            <input type="checkbox" id="consent" name="consent" required>
+            <span>Соглашаюсь на обработку персональных данных в соответствии с <a href="#privacy">политикой конфиденциальности</a></span>
+          </label>
+          <span class="error" id="consent-error"></span>
+        </div>
+        <button class="btn btn-dark" type="submit" id="submit">Забронировать</button>
+        <p class="status" id="status" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="result" id="result" hidden>
+        <h3 id="result-title" tabindex="-1">Заявка готова</h3>
+        <p id="result-text">Отправьте её куратору в мессенджер: он ответит и предложит время для разговора.</p>
+        <label class="sr-only" for="summary">Текст заявки</label>
+        <textarea class="summary" id="summary" readonly></textarea>
+        <div class="result-actions">
+          <a class="btn btn-dark" id="send-wa" href="#" hidden>Отправить в WhatsApp</a>
+          <a class="btn btn-dark" id="send-tg" href="#" hidden>Отправить в Telegram</a>
+          <button class="btn btn-ghost" type="button" id="copy">Скопировать текст</button>
+        </div>
+        <p class="preview-note" id="preview-note" hidden>Сайт в режиме предпросмотра: укажите WhatsApp или Telegram куратора в настройках, и заявки будут уходить ему.</p>
+        <button class="link text-btn" type="button" id="edit">Изменить заявку</button>
+      </div>
+    </div>
+  </div>
+</dialog>
+
+<script>
+/* Настройки: укажите контакты куратора и, при запуске на своём домене, адрес сервера для заявок */
+const CONFIG = {
+  brand: "Longa Via",
+  whatsapp: "",   // номер в международном формате без плюса, например 79001234567
+  telegram: "",   // имя пользователя без @, например longavia_concierge
+  endpoint: ""    // адрес сервера, который принимает заявку методом POST в формате JSON
+};
+
+/* Программы: методики с уровнем доказательности и программа пребывания по дням */
+const PROGRAMS = [
+  {
+    id: "checkup",
+    name: "Чекап за три дня",
+    duration: "3 дня и день прилёта",
+    who: "Для тех, кто хочет за один визит узнать о своём здоровье всё и уехать с планом на год.",
+    where: "ОАЭ, Швейцария, Япония, США",
+    clinics: "Human Longevity, Fountain Life, Biograph, Mayo Clinic",
+    methods: [
+      ["Расширенные анализы крови, более 100 маркеров", "B"],
+      ["Полногеномное секвенирование", "B"],
+      ["МРТ всего тела", "C"],
+      ["Кальциевый индекс коронарных артерий", "A"],
+      ["ЭКГ и эхокардиография", "A"],
+      ["Денситометрия и состав тела (DEXA)", "A"],
+      ["Кардиопульмональный тест VO2max", "A"],
+      ["Консультации профильных врачей", "A"]
+    ],
+    stay: [
+      ["День 0", "Прилёт", ["Встреча в аэропорту и трансфер в отель", "Звонок куратора: расписание и подготовка", "Лёгкий ужин до 20:00, утром натощак"]],
+      ["День 1", "Анализы и визуализация", ["Утром натощак: кровь и образец для генома", "МРТ всего тела, около часа", "УЗИ органов брюшной полости и сосудов", "Вечер свободен: спа или прогулка"]],
+      ["День 2", "Сердце и физическая форма", ["ЭКГ, эхокардиография, кальциевый индекс", "Денситометрия: мышцы, жир, кости", "Кардиопульмональный тест VO2max", "Консультации кардиолога и других специалистов"]],
+      ["День 3", "Итоги и план", ["Итоговая консультация ведущего врача", "План на год: тренировки, питание, контрольные обследования", "Перевод заключения на русский язык", "Трансфер в аэропорт или продление отдыха"]]
+    ],
+    after: "Результаты генома готовы через несколько недель. Разбираем их онлайн с врачом и дополняем план."
+  },
+  {
+    id: "longevity",
+    name: "Неделя долголетия",
+    duration: "7 ночей",
+    who: "Неделя в клинике-курорте: полная диагностика и новый режим тренировок, питания и сна под наблюдением врачей.",
+    where: "Швейцария, Австрия и Германия, Испания, Италия, Китай",
+    clinics: "Clinique La Prairie, Lanserhof, SHA Wellness Clinic, Chenot Palace, Palazzo Fiuggi",
+    methods: [
+      ["Тренировки под контролем VO2max и силовые", "A"],
+      ["Исследование и восстановление сна", "A"],
+      ["Контроль давления, холестерина и глюкозы", "A"],
+      ["Персональное питание и умеренное ограничение калорий", "B"],
+      ["Эпигенетические часы", "C"],
+      ["Лечебное голодание или метод Майра", "C"],
+      ["Гидротерапия, сауна, криотерапия", "C"]
+    ],
+    stay: [
+      ["День 1", "Прилёт и знакомство", ["Трансфер и заселение в клинику-курорт", "Встреча с ведущим врачом", "Анализы и состав тела"]],
+      ["День 2", "Диагностика", ["Кардиологическое обследование и тест VO2max", "Эпигенетический тест по желанию", "Ночью исследование сна"]],
+      ["День 3", "Персональный план", ["Врач разбирает результаты и утверждает план", "Первая тренировка в комфортной пульсовой зоне", "Меню от диетолога на всю неделю"]],
+      ["Дни 4–5", "Ритм программы", ["Утро: ходьба, плавание или силовая тренировка", "Днём: гидротерапия, сауна, массаж", "Занятия по сну и управлению стрессом"]],
+      ["День 6", "Углубление", ["Интервальная тренировка с тренером", "Консультации эндокринолога и кардиолога по показаниям", "Мастер-класс по питанию"]],
+      ["День 7", "Итоги", ["Повторные замеры", "Финальная консультация и план на 12 месяцев", "Трансфер в аэропорт"]]
+    ],
+    after: "Через три месяца: повторные анализы дома и онлайн-встреча с врачом клиники."
+  },
+  {
+    id: "metabolic",
+    name: "Метаболическое здоровье и вес",
+    duration: "10 дней",
+    who: "При лишнем весе, преддиабете и высоком холестерине: снизить риски и сохранить мышцы.",
+    where: "ОАЭ, Швейцария, Испания",
+    clinics: "SHA Wellness Clinic, Lanserhof",
+    methods: [
+      ["Лекарственная терапия по назначению эндокринолога", "A"],
+      ["Силовые тренировки для сохранения мышц", "A"],
+      ["Денситометрия и состав тела (DEXA)", "A"],
+      ["Контроль давления, холестерина и глюкозы", "A"],
+      ["Непрерывный мониторинг глюкозы", "B"],
+      ["Расширенные анализы крови", "B"],
+      ["Персональное питание", "B"]
+    ],
+    stay: [
+      ["День 1", "Прилёт и замеры", ["Анализы: гликированный гемоглобин, инсулин, липиды", "Состав тела на DEXA", "Установка датчика глюкозы на 14 дней"]],
+      ["Дни 2–3", "Диагностика и решение", ["Консультации эндокринолога и кардиолога", "Решение о лекарственной терапии", "Персональный план питания"]],
+      ["Дни 4–8", "Новый режим", ["Силовые тренировки через день", "Ежедневная ходьба и плавание", "Разбор данных о глюкозе с диетологом"]],
+      ["Дни 9–10", "Закрепление", ["Повторные замеры", "План питания и тренировок для дома", "Трансфер в аэропорт"]]
+    ],
+    after: "Дистанционное наблюдение эндокринолога и контрольные анализы дома."
+  },
+  {
+    id: "women",
+    name: "Женское здоровье и менопауза",
+    duration: "5 дней",
+    who: "Для женщин после 40: приливы, сон, кости и сердце под контролем одного врача.",
+    where: "Швейцария, ОАЭ, Испания",
+    clinics: "",
+    methods: [
+      ["Менопаузальная гормональная терапия по показаниям", "A"],
+      ["Денситометрия костей (DEXA)", "A"],
+      ["Маммография и УЗИ", "A"],
+      ["Кальциевый индекс по показаниям", "A"],
+      ["Силовые тренировки для костей", "A"],
+      ["Физиотерапия мышц тазового дна", "B"]
+    ],
+    stay: [
+      ["День 1", "Прилёт и консультация", ["Гинеколог-эндокринолог", "Анализы на гормоны"]],
+      ["День 2", "Обследование", ["Маммография и УЗИ", "Денситометрия", "Оценка сердечно-сосудистого риска"]],
+      ["День 3", "Решение о терапии", ["Обсуждение гормональной терапии с врачом", "Подбор схемы", "Первая силовая тренировка"]],
+      ["День 4", "Сон и восстановление", ["Консультация по сну", "Физиотерапия тазового дна", "Питание"]],
+      ["День 5", "Итоги", ["План наблюдения на год", "Трансфер в аэропорт"]]
+    ],
+    after: "Контрольная онлайн-консультация через три месяца после начала терапии."
+  },
+  {
+    id: "rehab",
+    name: "Восстановление после инсульта и травм",
+    duration: "От 3 недель",
+    who: "После инсульта, черепно-мозговой травмы и травмы спинного мозга, в том числе спустя годы.",
+    where: "Швейцария, ОАЭ, Турция, США",
+    clinics: "Shirley Ryan AbilityLab",
+    methods: [
+      ["Роботизированная тренировка ходьбы (Lokomat, экзоскелет EksoGT)", "A"],
+      ["Роботизированная реабилитация руки (ArmeoSpring)", "A"],
+      ["Неинвазивная стимуляция спинного мозга ARC-EX", "A"],
+      ["Лечебная физкультура, логопед, нейропсихолог", "A"],
+      ["Стимуляция блуждающего нерва", "B"],
+      ["Транскраниальная магнитная стимуляция", "B"],
+      ["VR-тренировки и биологическая обратная связь", "B"],
+      ["Подводная беговая дорожка HydroWorx", "B"],
+      ["4D-анализ походки и электромиография", "B"]
+    ],
+    stay: [
+      ["До поездки", "Изучение документов", ["Врач клиники изучает выписки, снимки и видео ходьбы", "Программа утверждается до вылета"]],
+      ["Дни 1–2", "Прилёт и оценка", ["Трансфер, при необходимости медицинский", "Осмотр невролога и реабилитолога", "Электромиография, анализ ходьбы и осанки"]],
+      ["Недели 1–3", "Ежедневные занятия 5–6 часов", ["Роботизированная ходьба и тренировка руки", "Лечебная физкультура и подводная дорожка", "Нейростимуляция по показаниям", "Логопед и нейропсихолог", "Воскресенье для отдыха"]],
+      ["По пятницам", "Замеры прогресса", ["Тесты и шкалы", "Корректировка программы"]],
+      ["Финал", "Домашний план", ["Итоговое тестирование", "Программа упражнений и подбор устройств для дома", "Обучение близких"]]
+    ],
+    after: "Онлайн-контроль реабилитолога. Повторный курс через 3–6 месяцев, если нужен."
+  },
+  {
+    id: "joints",
+    name: "Суставы и позвоночник",
+    duration: "10–14 дней",
+    who: "Боль в спине и суставах, последствия спортивных травм, износ хряща.",
+    where: "Турция, Швейцария, ОАЭ",
+    clinics: "",
+    methods: [
+      ["Выращенный хрящ по технологии MACI", "A"],
+      ["Лечебная физкультура на тренажёрах с дозированной нагрузкой", "A"],
+      ["4D-анализ позвоночника и походки (DIERS)", "B"],
+      ["Электромиография", "B"],
+      ["Ударно-волновая терапия", "B"],
+      ["Гидрореабилитация", "B"],
+      ["Высокоинтенсивная лазерная терапия (HILT)", "C"],
+      ["Обогащённая тромбоцитами плазма (PRP)", "C"]
+    ],
+    stay: [
+      ["День 1", "Диагностика", ["Осмотр ортопеда", "4D-анализ позвоночника и походки без облучения", "МРТ сустава и электромиография"]],
+      ["День 2", "План лечения", ["Консервативный курс или операция с восстановлением хряща", "Расписание процедур"]],
+      ["Дни 3–12", "Курс", ["Ударно-волновая терапия и лазер", "Гидротерапия", "Лечебная физкультура ежедневно"]],
+      ["Финал", "Итоги", ["Повторный анализ движения", "Домашняя программа упражнений"]]
+    ],
+    after: "Восстановление хряща по технологии MACI проходит в две поездки: между ними клетки выращивают несколько недель."
+  },
+  {
+    id: "brain",
+    name: "Здоровье мозга",
+    duration: "5 дней, курс до 12 недель",
+    who: "При жалобах на память и внимание, после инсульта или ковида, при семейном риске деменции.",
+    where: "ОАЭ, США",
+    clinics: "Aviv Clinics",
+    methods: [
+      ["Нейропсихологическое тестирование", "A"],
+      ["Исследование сна", "A"],
+      ["МРТ мозга с оценкой объёма отделов", "B"],
+      ["Транскраниальная магнитная стимуляция", "B"],
+      ["Плазмообмен при ранней болезни Альцгеймера", "B"],
+      ["Гипербарическая оксигенация, курс 60 сеансов", "C"]
+    ],
+    stay: [
+      ["День 1", "Прилёт и тестирование", ["Тесты памяти, внимания и скорости мышления"]],
+      ["День 2", "Визуализация", ["МРТ мозга с оценкой объёма отделов", "Сосуды головы и шеи", "Анализы"]],
+      ["День 3", "Сон", ["Ночное исследование сна", "Оценка сердечно-сосудистых рисков"]],
+      ["День 4", "Решение", ["Консультация невролога и план", "По показаниям: курс кислородной терапии или плазмообмена"]],
+      ["Курс", "12 недель кислородной терапии", ["60 сеансов по 90 минут, 5 дней в неделю", "Когнитивные и физические тренировки", "Повторная оценка в конце курса"]]
+    ],
+    after: "Повторное тестирование через шесть месяцев показывает динамику."
+  },
+  {
+    id: "regen",
+    name: "Регенеративная медицина в Японии",
+    duration: "Две поездки по 3 дня",
+    who: "Клеточная терапия при болях в суставах и по другим показаниям в клиниках, зарегистрированных Минздравом Японии.",
+    where: "Япония",
+    clinics: "",
+    methods: [
+      ["Клеточные препараты из iPS-клеток, первые одобрены в 2026 году", "B"],
+      ["Терапия собственными мезенхимальными стволовыми клетками", "C"],
+      ["Обогащённая тромбоцитами плазма (PRP)", "C"]
+    ],
+    stay: [
+      ["До поездки", "Отбор", ["Японский врач изучает документы и подтверждает показания", "Клиника сообщает номер плана лечения в реестре Минздрава"]],
+      ["Поездка 1", "3 дня", ["Консультация и анализы", "Забор небольшого объёма жировой ткани для выращивания клеток"]],
+      ["Между поездками", "Несколько недель", ["Клетки выращивают и проверяют в сертифицированной лаборатории"]],
+      ["Поездка 2", "3 дня", ["Введение клеток в сустав или внутривенно", "Наблюдение врача"]]
+    ],
+    after: "Безопасность процедур контролирует японский закон, но эффективность доказана не для всех показаний. Врач-консультант честно разбирает ваш случай до оплаты. Доступность препаратов из iPS-клеток для иностранцев уточняем отдельно."
+  }
+];
+
+/* Каталог методик */
+const METHODS = [
+  ["Диагностика", "МРТ всего тела", "C", "Поиск опухолей и аневризм до появления симптомов. Возможны случайные находки, которые требуют дообследования.", ["checkup"]],
+  ["Диагностика", "МРТ мозга с оценкой объёма отделов", "B", "Ранние признаки нейродегенерации и состояние сосудов.", ["brain"]],
+  ["Диагностика", "Кальциевый индекс коронарных артерий", "A", "Ранняя оценка атеросклероза. Входит в кардиологические рекомендации.", ["checkup", "women"]],
+  ["Диагностика", "Денситометрия и состав тела (DEXA)", "A", "Мышцы, висцеральный жир и плотность костей.", ["checkup", "metabolic", "women"]],
+  ["Диагностика", "Кардиопульмональный тест VO2max", "A", "Выносливость, сильнейший измеримый предиктор продолжительности жизни.", ["checkup", "longevity"]],
+  ["Диагностика", "Расширенные анализы крови", "B", "Более 100 маркеров обмена веществ, воспаления и гормонов.", ["checkup", "metabolic"]],
+  ["Диагностика", "Полногеномное секвенирование", "B", "Наследственные риски и индивидуальная реакция на лекарства.", ["checkup"]],
+  ["Диагностика", "Эпигенетические часы", "C", "Биологический возраст и темп старения. Для наблюдения в динамике, не для диагноза.", ["longevity"]],
+  ["Диагностика", "Исследование сна", "A", "Апноэ, фазы и качество сна за одну ночь.", ["longevity", "brain"]],
+  ["Диагностика", "4D-анализ позвоночника и походки", "B", "Осанка и движение в динамике без рентгеновского облучения.", ["rehab", "joints"]],
+  ["Диагностика", "Электромиография", "B", "Работа нервов и мышц, контроль прогресса реабилитации.", ["rehab", "joints"]],
+  ["Диагностика", "Непрерывный мониторинг глюкозы", "B", "Как еда, сон и нагрузка влияют на сахар крови в реальном времени.", ["metabolic"]],
+  ["Диагностика", "Нейропсихологическое тестирование", "A", "Память, внимание и скорость мышления по стандартным шкалам.", ["brain"]],
+  ["Восстановление", "Роботизированная тренировка ходьбы", "A", "Lokomat и экзоскелеты. Повышают шанс снова ходить самостоятельно после инсульта.", ["rehab"]],
+  ["Восстановление", "Роботизированная реабилитация руки", "A", "ArmeoSpring: тысячи точных повторений с игровой обратной связью.", ["rehab"]],
+  ["Восстановление", "Неинвазивная стимуляция спинного мозга", "A", "ARC-EX возвращает силу и чувствительность рук при травме шейного отдела, в том числе через годы.", ["rehab"]],
+  ["Восстановление", "Лечебная физкультура с дозированной нагрузкой", "A", "Тренажёры с точной настройкой нагрузки под контролем инструктора.", ["rehab", "joints", "women"]],
+  ["Восстановление", "Стимуляция блуждающего нерва", "B", "Ускоряет восстановление движений руки после инсульта.", ["rehab"]],
+  ["Восстановление", "Транскраниальная магнитная стимуляция", "B", "Магнитные импульсы активируют нужные зоны мозга.", ["rehab", "brain"]],
+  ["Восстановление", "VR-тренировки и биологическая обратная связь", "B", "Упражнения в виртуальной среде повышают мотивацию и объём занятий.", ["rehab"]],
+  ["Восстановление", "Подводная беговая дорожка", "B", "HydroWorx: ходьба с частичной разгрузкой веса тела.", ["rehab", "joints"]],
+  ["Восстановление", "Ударно-волновая терапия", "B", "Хроническое воспаление сухожилий и пяточная шпора.", ["joints"]],
+  ["Восстановление", "Выращенный хрящ (MACI)", "A", "Собственные клетки хряща выращивают в лаборатории и пересаживают в сустав.", ["joints"]],
+  ["Восстановление", "Высокоинтенсивная лазерная терапия", "C", "Обезболивание при болях в мышцах и суставах.", ["joints"]],
+  ["Восстановление", "Криотерапия", "C", "Субъективное восстановление после нагрузок.", ["longevity"]],
+  ["Восстановление", "Иппотерапия", "C", "Занятия с лошадью для баланса и координации, в том числе для детей с ДЦП.", []],
+  ["Долголетие и метаболизм", "Тренировки под контролем VO2max и силовые", "A", "Основа любой программы долголетия по силе доказательств.", ["longevity", "metabolic", "women"]],
+  ["Долголетие и метаболизм", "Контроль давления, холестерина и глюкозы", "A", "Самый изученный способ отодвинуть инфаркт, инсульт и деменцию.", ["checkup", "longevity", "metabolic"]],
+  ["Долголетие и метаболизм", "Лечение апноэ и восстановление сна", "A", "Сон влияет на сердце, память и обмен веществ.", ["longevity", "brain"]],
+  ["Долголетие и метаболизм", "Лекарственная терапия ожирения", "A", "Современные препараты по назначению эндокринолога снижают вес и сердечно-сосудистые риски.", ["metabolic"]],
+  ["Долголетие и метаболизм", "Менопаузальная гормональная терапия", "A", "Снимает симптомы менопаузы. Начинать лучше в первые 10 лет после её наступления.", ["women"]],
+  ["Долголетие и метаболизм", "Персональное питание и ограничение калорий", "B", "Умеренное ограничение калорий замедляло темп старения в рандомизированном исследовании.", ["longevity", "metabolic"]],
+  ["Долголетие и метаболизм", "Терапевтический плазмообмен", "B", "При ранней болезни Альцгеймера замедлял ухудшение. Для омоложения эффект оказался нестойким.", ["brain"]],
+  ["Долголетие и метаболизм", "Гипербарическая оксигенация", "C", "При отравлениях, ранах и декомпрессии это стандарт лечения. Для омоложения данные пока ранние.", ["brain"]],
+  ["Долголетие и метаболизм", "Лечебное голодание и метод Майра", "C", "Структурированные программы питания в клиниках-курортах.", ["longevity"]],
+  ["Долголетие и метаболизм", "Сауна, гидротерапия, термальные воды", "C", "Уменьшают боль в суставах и помогают расслабиться.", ["longevity"]],
+  ["Регенерация", "Клеточные препараты из iPS-клеток", "B", "Первые в мире одобрены в Японии в 2026 году: при болезни Паркинсона и тяжёлой сердечной недостаточности.", ["regen"]],
+  ["Регенерация", "Терапия собственными стволовыми клетками", "C", "Мезенхимальные клетки в клиниках, зарегистрированных по японскому закону о регенеративной медицине.", ["regen"]],
+  ["Регенерация", "Обогащённая тромбоцитами плазма (PRP)", "C", "Популярна в ортопедии, данные об эффективности противоречивы.", ["joints", "regen"]]
+];
+
+const LEVEL_TITLE = {A: "Уровень A: доказано и одобрено регуляторами", B: "Уровень B: доказано для конкретных заболеваний", C: "Уровень C: ранние исследования"};
+
+(function(){
+  const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+  const badge = l => '<span class="lvl lvl-' + l.toLowerCase() + '" title="' + LEVEL_TITLE[l] + '" aria-label="' + LEVEL_TITLE[l] + '">' + l + '</span>';
+  const progName = id => (PROGRAMS.find(p => p.id === id) || {}).name || id;
+
+  const y = document.getElementById("year");
+  if (y) y.textContent = String(new Date().getFullYear());
+
+  /* Header state */
+  const header = document.getElementById("header");
+  const hero = document.getElementById("hero");
+  function setHeader(){ header.classList.toggle("is-solid", window.scrollY > (hero.offsetHeight - 90) || !mobileNav.hidden); }
+  const mobileNav = document.getElementById("mobile-nav");
+  const menuBtn = document.getElementById("menu-toggle");
+  setHeader();
+  window.addEventListener("scroll", setHeader, {passive:true});
+  window.addEventListener("resize", setHeader);
+  menuBtn.addEventListener("click", () => {
+    mobileNav.hidden = !mobileNav.hidden;
+    menuBtn.setAttribute("aria-expanded", String(!mobileNav.hidden));
+    setHeader();
+  });
+  mobileNav.querySelectorAll("a").forEach(a => a.addEventListener("click", () => { mobileNav.hidden = true; menuBtn.setAttribute("aria-expanded","false"); setHeader(); }));
+
+  /* Program explorer */
+  const tabsEl = document.getElementById("ptabs");
+  const panel = document.getElementById("ppanel");
+  tabsEl.innerHTML = PROGRAMS.map((p, i) =>
+    '<button class="ptab" type="button" role="tab" id="tab-' + p.id + '" aria-controls="ppanel" aria-selected="' + (i === 0) + '" tabindex="' + (i === 0 ? 0 : -1) + '" data-id="' + p.id + '">' +
+    '<span class="ptab-name">' + esc(p.name) + '</span><span class="ptab-dur">' + esc(p.duration) + '</span></button>'
+  ).join("");
+
+  function renderPanel(p){
+    const methods = p.methods.map(m => '<li>' + badge(m[1]) + '<span>' + esc(m[0]) + '</span></li>').join("");
+    const stay = p.stay.map(s => '<li><div class="stay-day">' + esc(s[0]) + '</div><div><p class="stay-title">' + esc(s[1]) + '</p><ul>' + s[2].map(x => '<li>' + esc(x) + '</li>').join("") + '</ul></div></li>').join("");
+    panel.setAttribute("aria-labelledby", "tab-" + p.id);
+    panel.innerHTML =
+      '<header class="ppanel-head"><div><h3>' + esc(p.name) + '</h3><p class="pwho">' + esc(p.who) + '</p></div>' +
+      '<dl class="pmeta"><div><dt>Длительность</dt><dd>' + esc(p.duration) + '</dd></div><div><dt>Где проводим</dt><dd>' + esc(p.where) + '</dd></div></dl></header>' +
+      '<div class="pcols"><section class="pblock" aria-label="Методики"><h4>Методики</h4><ul class="pmethods">' + methods + '</ul></section>' +
+      '<section class="pblock" aria-label="Программа пребывания"><h4>Программа пребывания</h4><ol class="stay">' + stay + '</ol><p class="after">' + esc(p.after) + '</p></section></div>' +
+      '<footer class="pfoot"><p class="pclinics">' + (p.clinics ? 'Клиники такого уровня: <strong>' + esc(p.clinics) + '</strong>' : 'Клинику подбираем под ваши задачи и документы') + '</p>' +
+      '<button class="btn btn-dark" type="button" data-book data-program="' + esc(p.name) + '">Выбрать программу</button></footer>';
+  }
+  function selectProgram(id, focusTab){
+    const p = PROGRAMS.find(x => x.id === id) || PROGRAMS[0];
+    tabsEl.querySelectorAll(".ptab").forEach(t => {
+      const on = t.dataset.id === p.id;
+      t.setAttribute("aria-selected", String(on));
+      t.tabIndex = on ? 0 : -1;
+      if (on){
+        if (focusTab) t.focus();
+        if (window.matchMedia("(max-width:900px)").matches) t.scrollIntoView({block:"nearest", inline:"nearest", behavior: reduceMotion ? "auto" : "smooth"});
+      }
+    });
+    renderPanel(p);
+  }
+  tabsEl.addEventListener("click", e => { const t = e.target.closest(".ptab"); if (t) selectProgram(t.dataset.id); });
+  tabsEl.addEventListener("keydown", e => {
+    const tabs = Array.from(tabsEl.querySelectorAll(".ptab"));
+    const i = tabs.indexOf(document.activeElement);
+    if (i < 0) return;
+    let n = null;
+    if (e.key === "ArrowDown" || e.key === "ArrowRight") n = (i + 1) % tabs.length;
+    if (e.key === "ArrowUp" || e.key === "ArrowLeft") n = (i - 1 + tabs.length) % tabs.length;
+    if (e.key === "Home") n = 0;
+    if (e.key === "End") n = tabs.length - 1;
+    if (n !== null){ e.preventDefault(); selectProgram(tabs[n].dataset.id, true); }
+  });
+  function fromHash(){
+    const id = location.hash.replace("#", "");
+    if (PROGRAMS.some(p => p.id === id)){
+      selectProgram(id);
+      document.getElementById("programs").scrollIntoView({behavior: reduceMotion ? "auto" : "smooth"});
+      return true;
+    }
+    return false;
+  }
+  if (!fromHash()) selectProgram(PROGRAMS[0].id);
+  window.addEventListener("hashchange", fromHash);
+
+  /* Methods catalog */
+  const catalog = document.getElementById("catalog");
+  const count = document.getElementById("filter-count");
+  catalog.innerHTML = METHODS.map(m =>
+    '<li class="method" data-cat="' + esc(m[0]) + '"><div class="method-top">' + badge(m[2]) + '<span>' + esc(m[0]) + '</span></div>' +
+    '<h3>' + esc(m[1]) + '</h3><p>' + esc(m[3]) + '</p>' +
+    (m[4].length ? '<p class="method-progs">В программах: ' + m[4].map(id => esc(progName(id))).join(", ") + '</p>' : '<p class="method-progs">Подключаем по запросу</p>') + '</li>'
+  ).join("");
+  function filterTo(cat){
+    let shown = 0;
+    catalog.querySelectorAll(".method").forEach(li => { const on = cat === "all" || li.dataset.cat === cat; li.hidden = !on; if (on) shown++; });
+    document.querySelectorAll(".filter").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.cat === cat)));
+    const word = (n => { const a = n % 10, b = n % 100; if (a === 1 && b !== 11) return "методика"; if (a >= 2 && a <= 4 && (b < 12 || b > 14)) return "методики"; return "методик"; })(shown);
+    count.textContent = "Показано: " + shown + " " + word;
+  }
+  document.getElementById("filters").addEventListener("click", e => { const b = e.target.closest(".filter"); if (b) filterTo(b.dataset.cat); });
+  filterTo("all");
+
+  /* Booking form options */
+  const programSelect = document.getElementById("program");
+  PROGRAMS.forEach(p => { const o = document.createElement("option"); o.textContent = p.name; programSelect.appendChild(o); });
+  const when = document.getElementById("when");
+  const fmt = new Intl.DateTimeFormat("ru-RU", {month:"long", year:"numeric"});
+  const now = new Date();
+  for (let i = 0; i < 12; i++){
+    const label = fmt.format(new Date(now.getFullYear(), now.getMonth() + i, 1)).replace(" г.", "");
+    const o = document.createElement("option");
+    o.textContent = label.charAt(0).toUpperCase() + label.slice(1);
+    when.appendChild(o);
+  }
+
+  /* Drawer */
+  const drawer = document.getElementById("drawer");
+  const form = document.getElementById("booking-form");
+  const result = document.getElementById("result");
+  const status = document.getElementById("status");
+  let lastTrigger = null;
+  function openDrawer(program){
+    if (program) programSelect.value = program;
+    if (typeof drawer.showModal === "function") drawer.showModal(); else drawer.setAttribute("open", "");
+    requestAnimationFrame(() => drawer.classList.add("is-open"));
+    setTimeout(() => { const first = result.hidden ? document.getElementById("name") : document.getElementById("result-title"); if (first) first.focus({preventScroll:true}); }, 60);
+  }
+  function closeDrawer(){
+    drawer.classList.remove("is-open");
+    const done = () => { if (drawer.open && drawer.close) drawer.close(); drawer.removeAttribute("open"); if (lastTrigger && document.contains(lastTrigger)) lastTrigger.focus({preventScroll:true}); };
+    if (reduceMotion) done(); else setTimeout(done, 250);
+  }
+  document.addEventListener("click", e => {
+    const el = e.target.closest("[data-book]");
+    if (!el) return;
+    e.preventDefault();
+    lastTrigger = el;
+    openDrawer(el.getAttribute("data-program"));
+  });
+  document.getElementById("drawer-close").addEventListener("click", closeDrawer);
+  drawer.addEventListener("cancel", e => { e.preventDefault(); closeDrawer(); });
+  drawer.addEventListener("click", e => {
+    if (e.target !== drawer) return;
+    const r = drawer.getBoundingClientRect();
+    if (e.clientX < r.left || e.clientX > r.right || e.clientY < r.top || e.clientY > r.bottom) closeDrawer();
+  });
+
+  /* Guests stepper */
+  let guests = 1;
+  const gOut = document.getElementById("guests"), gMinus = document.getElementById("guests-minus"), gPlus = document.getElementById("guests-plus");
+  function renderGuests(){ gOut.textContent = String(guests); gMinus.disabled = guests <= 1; gPlus.disabled = guests >= 8; }
+  gMinus.addEventListener("click", () => { guests = Math.max(1, guests - 1); renderGuests(); });
+  gPlus.addEventListener("click", () => { guests = Math.min(8, guests + 1); renderGuests(); });
+  renderGuests();
+
+  /* Validation */
+  function setError(fieldId, errId, msg){
+    const f = document.getElementById(fieldId), e = document.getElementById(errId);
+    if (f) f.classList.toggle("has-error", !!msg);
+    if (e) e.textContent = msg || "";
+  }
+  function validate(){
+    let ok = true;
+    const name = form.name.value.trim(), phoneDigits = form.phone.value.replace(/\D/g, ""), email = form.email.value.trim();
+    if (name.length < 2){ setError("f-name","name-error","Укажите имя"); ok = false; } else setError("f-name","name-error","");
+    if (phoneDigits.length < 10){ setError("f-phone","phone-error","Укажите телефон с кодом страны, например +7 900 123-45-67"); ok = false; } else setError("f-phone","phone-error","");
+    if (email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setError("f-email","email-error","Проверьте адрес: в нём должны быть @ и домен"); ok = false; } else setError("f-email","email-error","");
+    if (!form.consent.checked){ setError("f-consent","consent-error","Без согласия мы не сможем обработать заявку"); ok = false; } else setError("f-consent","consent-error","");
+    return ok;
+  }
+  ["name","phone","email"].forEach(id => form[id].addEventListener("blur", () => { if (form[id].value) validate(); }));
+
+  function collect(){
+    return {name: form.name.value.trim(), phone: form.phone.value.trim(), channel: form.channel.value, email: form.email.value.trim(), program: form.program.value, destination: form.destination.value, when: form.when.value, guests: guests, comment: form.comment.value.trim(), createdAt: new Date().toISOString()};
+  }
+  function toText(d){
+    const lines = ["Заявка " + CONFIG.brand, "Имя: " + d.name, "Телефон: " + d.phone, "Связаться: " + d.channel];
+    if (d.email) lines.push("Email: " + d.email);
+    lines.push("Программа: " + d.program, "Направление: " + d.destination, "Когда: " + d.when, "Человек: " + d.guests);
+    if (d.comment) lines.push("Пожелания: " + d.comment);
+    return lines.join("\n");
+  }
+  function showResult(text, sent){
+    document.getElementById("summary").value = text;
+    const wa = document.getElementById("send-wa"), tg = document.getElementById("send-tg");
+    const waNum = CONFIG.whatsapp.replace(/\D/g, ""), tgUser = CONFIG.telegram.replace(/^@/, "").trim();
+    if (!sent && waNum){ wa.href = "https://wa.me/" + waNum + "?text=" + encodeURIComponent(text); wa.hidden = false; } else wa.hidden = true;
+    if (!sent && tgUser){ tg.href = "https://t.me/" + encodeURIComponent(tgUser) + "?text=" + encodeURIComponent(text); tg.hidden = false; } else tg.hidden = true;
+    document.getElementById("preview-note").hidden = sent || !!(waNum || tgUser);
+    document.getElementById("result-title").textContent = sent ? "Заявка отправлена" : "Заявка готова";
+    document.getElementById("result-text").textContent = sent
+      ? "Куратор свяжется с вами в течение рабочего дня тем способом, который вы выбрали."
+      : ((waNum || tgUser) ? "Отправьте её куратору в мессенджер: он ответит и предложит время для разговора." : "Скопируйте текст заявки и отправьте куратору.");
+    form.hidden = true;
+    result.hidden = false;
+    drawer.querySelector(".drawer-body").scrollTop = 0;
+    document.getElementById("result-title").focus({preventScroll:true});
+  }
+  form.addEventListener("submit", async e => {
+    e.preventDefault();
+    status.textContent = "";
+    if (!validate()){
+      const firstErr = form.querySelector(".has-error input, .has-error select");
+      if (firstErr) firstErr.focus();
+      status.textContent = "Проверьте поля, отмеченные выше";
+      return;
+    }
+    const data = collect(), text = toText(data), btn = document.getElementById("submit");
+    if (CONFIG.endpoint){
+      btn.disabled = true;
+      status.textContent = "Отправляем заявку";
+      try{
+        const ctrl = new AbortController();
+        const t = setTimeout(() => ctrl.abort(), 8000);
+        const res = await fetch(CONFIG.endpoint, {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(data), signal:ctrl.signal});
+        clearTimeout(t);
+        if (!res.ok) throw new Error("HTTP " + res.status);
+        btn.disabled = false; status.textContent = "";
+        showResult(text, true);
+        return;
+      } catch(err){ btn.disabled = false; status.textContent = ""; }
+    }
+    showResult(text, false);
+  });
+  document.getElementById("edit").addEventListener("click", () => { result.hidden = true; form.hidden = false; document.getElementById("name").focus({preventScroll:true}); });
+  document.getElementById("copy").addEventListener("click", async () => {
+    const ta = document.getElementById("summary"), btn = document.getElementById("copy");
+    try { await navigator.clipboard.writeText(ta.value); btn.textContent = "Текст скопирован"; }
+    catch(err){ ta.focus(); ta.select(); try { document.execCommand("copy"); btn.textContent = "Текст скопирован"; } catch(e2){ btn.textContent = "Выделите текст и скопируйте вручную"; } }
+    setTimeout(() => { btn.textContent = "Скопировать текст"; }, 2400);
+  });
+  document.querySelectorAll('a[href="#privacy"]').forEach(a => a.addEventListener("click", e => {
+    e.preventDefault();
+    status.textContent = "Политика обработки персональных данных будет опубликована при запуске сайта.";
+    if (!drawer.open){ lastTrigger = a; openDrawer(); }
+  }));
+
+  /* Hero rings: growth rings with a clock, chronological and biological hands */
+  const canvas = document.getElementById("rings");
+  const ctx = canvas.getContext("2d");
+  let W = 0, dpr = 1, running = true, visible = true;
+  const start = performance.now();
+  function size(){
+    const rect = canvas.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = Math.max(1, Math.round(rect.width));
+    canvas.width = Math.round(W * dpr); canvas.height = Math.round(W * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  function draw(t){
+    const cx = W / 2, cy = W / 2, R = W / 2 - 6;
+    ctx.clearRect(0, 0, W, W);
+    const rings = 15;
+    for (let i = 0; i < rings; i++){
+      const r = R * (0.2 + 0.8 * (i / (rings - 1)));
+      const alpha = 0.06 + 0.16 * Math.sin((i / rings) * Math.PI);
+      ctx.beginPath(); ctx.arc(cx, cy, r, 0, Math.PI * 2);
+      ctx.strokeStyle = "rgba(242,244,241," + alpha.toFixed(3) + ")";
+      ctx.lineWidth = i % 4 === 0 ? 1.2 : 0.8;
+      if (i % 3 === 1){ ctx.setLineDash([2, 7 + (i % 5)]); ctx.lineDashOffset = (i % 2 ? 1 : -1) * t * 0.004 * (1 + i * 0.08); } else ctx.setLineDash([]);
+      ctx.stroke();
+    }
+    ctx.setLineDash([]);
+    for (let k = 0; k < 60; k++){
+      const a = (k / 60) * Math.PI * 2 - Math.PI / 2, long = k % 5 === 0, r1 = R - (long ? 16 : 8);
+      ctx.beginPath(); ctx.moveTo(cx + Math.cos(a) * r1, cy + Math.sin(a) * r1); ctx.lineTo(cx + Math.cos(a) * R, cy + Math.sin(a) * R);
+      ctx.strokeStyle = long ? "rgba(242,244,241,.55)" : "rgba(242,244,241,.22)"; ctx.lineWidth = long ? 1.2 : 0.8; ctx.stroke();
+    }
+    const base = -Math.PI / 2 + 2.1;
+    const chrono = base + t * 0.000045;
+    const bio = base - 0.42 + t * 0.000045 * 0.9 + Math.sin(t * 0.0002) * 0.03;
+    ctx.lineCap = "round";
+    ctx.beginPath(); ctx.moveTo(cx - Math.cos(chrono) * R * 0.08, cy - Math.sin(chrono) * R * 0.08); ctx.lineTo(cx + Math.cos(chrono) * R * 0.86, cy + Math.sin(chrono) * R * 0.86);
+    ctx.strokeStyle = "rgba(242,244,241,.85)"; ctx.lineWidth = 1.2; ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(cx, cy); ctx.lineTo(cx + Math.cos(bio) * R * 0.64, cy + Math.sin(bio) * R * 0.64);
+    ctx.strokeStyle = "#D2DC9E"; ctx.lineWidth = 3; ctx.stroke();
+    ctx.beginPath(); ctx.arc(cx, cy, 5, 0, Math.PI * 2); ctx.fillStyle = "#D2DC9E"; ctx.fill();
+    ctx.beginPath(); ctx.arc(cx, cy, 11, 0, Math.PI * 2); ctx.strokeStyle = "rgba(210,220,158,.35)"; ctx.lineWidth = 1; ctx.stroke();
+  }
+  function frame(now){ if (!running) return; draw(now - start); if (visible && !document.hidden) requestAnimationFrame(frame); else running = false; }
+  function resume(){ if (reduceMotion) return; if (!running){ running = true; requestAnimationFrame(frame); } }
+  size(); draw(0);
+  if ("ResizeObserver" in window) new ResizeObserver(() => { size(); draw(reduceMotion ? 0 : performance.now() - start); }).observe(canvas);
+  if (!reduceMotion){
+    if ("IntersectionObserver" in window) new IntersectionObserver(en => { visible = en[0].isIntersecting; if (visible) resume(); }).observe(canvas);
+    document.addEventListener("visibilitychange", () => { if (!document.hidden && visible) resume(); });
+    requestAnimationFrame(frame);
+  }
+})();
+</script>
+</body>
+</html>
